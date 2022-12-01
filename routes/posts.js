@@ -19,7 +19,7 @@ router.post("/", async (req, res) => {
 // 게시글 조회
 router.get("/", async (req, res) => {
     try {
-        const posting = await Posts.find();
+        const posting = await Posts.find().sort({ createdAt: -1 });
         const results = posting.map((posts) => {
             return {
                 postId: posts._id,
